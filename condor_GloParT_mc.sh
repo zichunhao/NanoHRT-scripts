@@ -23,19 +23,33 @@ if [ ${step} -ne 1 ] && [ ${step} -ne 2 ] && [ ${step} -ne 3 ]; then
     exit 1;
 fi
 
-source /afs/cern.ch/user/z/zichun/public/GloParT-calib/HRT/scripts/TAG.sh;
+# CERN lxplus
+# EOS_PATH=/eos/user/z/zichun
+# Fermilab LPC
+EOS_PATH=/eos/uscms/store/user/zhao1  
+EOS_PROJ_PATH=${EOS_PATH}/HH4b/GloParT-calib
+
+# source /uscms/home/zhao1/eos/HH4b/GloParT-calib/NanoHRT-scripts/TAG.sh;        # CERN lxplus
+source /uscms/home/zhao1/nobackup/HH4b/GloParT-calib/NanoHRT-scripts/TAG.sh;  # Fermilab LPC
 echo "TAG: ${TAG}";
 
 set -xe;
 
 # Constants
-INPUT="/eos/cms/store/group/phys_higgs/nonresonant_HH/NanoAOD_v12/sixie/${YEAR}/";
-OUTPUT="/eos/user/z/zichun/higgs/Hbb/HRT/HeavyFlavNtuples/${TAG}"
+
+# CERN lxplus
+# INPUT="/eos/cms/store/group/phys_higgs/nonresonant_HH/NanoAOD_v12/sixie/${YEAR}/";
+# OUTPUT="/eos/user/z/zichun/higgs/Hbb/HRT/HeavyFlavNtuples/${TAG}" 
+
+# Fermilab LPC
+# INPUT="/eos/uscms/store/user/lpcdihiggsboost/NanoAOD_v12_ParT"
+INPUT="/eos/uscms/"
+OUTPUT="${EOS_PROJ_PATH}/NanoHRT_outputs/${TAG}"
 mkdir -p ${OUTPUT};
-N_FILES_PER_JOB=1;
+N_FILES_PER_JOB=20;
 CHANNEL="qcd";
 JET_TYPE="ak8";
-filelist_path="/afs/cern.ch/user/z/zichun/public/GloParT-calib/HRT/CMSSW_13_0_13/src/PhysicsTools/NanoHRTTools/run/custom_samples/nanoindex_v12v2_private.json"
+filelist_path="${CMSSW_BASE}/src/PhysicsTools/NanoHRTTools/run/custom_samples/nanoindex_v12v2_private.json"
 
 DIR_RUN=${CMSSW_BASE}/src/PhysicsTools/NanoHRTTools/run;
 cd ${DIR_RUN};
@@ -44,7 +58,9 @@ cd ${DIR_RUN};
 if [ ${step} -eq 1 ]; then
     # Step 1: Generate the condor submission files
     # remove -i ${INPUT} if remote
+    # add --prefetch to download the files locally to tmp
     python3 runHeavyFlavTrees.py \
+    -i ${INPUT} \
     -o ${OUTPUT} \
     --nfiles-per-job ${N_FILES_PER_JOB} \
     --sample-dir custom_samples \
@@ -61,8 +77,10 @@ else
     # Step 3: add cross-section (xsec) weights and pileup (pu) weights
     # and hadd the output files
     # remove -i ${INPUT} if remote
+    # add --prefetch to download the files locally to tmp
     python3 runHeavyFlavTrees.py \
     --add-weight --weight-file "${DIR_RUN}/samples/xsecs_run3.py" \
+    -i ${INPUT} \
     -o ${OUTPUT} \
     --nfiles-per-job ${N_FILES_PER_JOB} \
     --sample-dir custom_samples \
