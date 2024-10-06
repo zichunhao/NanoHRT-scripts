@@ -31,7 +31,6 @@ set -xe;
 # Constants
 INPUT="/eos/cms/store/group/phys_higgs/nonresonant_HH/NanoAOD_v12/sixie/${YEAR}/";
 OUTPUT="/eos/user/z/zichun/higgs/Hbb/HRT/HeavyFlavNtuples/${TAG}"
-mkdir -p ${OUTPUT};
 N_FILES_PER_JOB=1;
 CHANNEL="qcd";
 JET_TYPE="ak8";

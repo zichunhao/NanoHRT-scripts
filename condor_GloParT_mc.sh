@@ -45,7 +45,6 @@ set -xe;
 # INPUT="/eos/uscms/store/user/lpcdihiggsboost/NanoAOD_v12_ParT"
 INPUT="/eos/uscms/"
 OUTPUT="${EOS_PROJ_PATH}/NanoHRT_outputs/${TAG}"
-mkdir -p ${OUTPUT};
 N_FILES_PER_JOB=20;
 CHANNEL="qcd";
 JET_TYPE="ak8";
