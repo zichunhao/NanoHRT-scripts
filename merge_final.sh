@@ -2,6 +2,8 @@
 
 parent_dir="/eos/home-z/zichun/higgs/HH4b-calib/HRT_ParT"
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 get_sub_dir() {
     local era=$1
     echo GloParTStage2_20241009_ak8_qcd_${era}
@@ -16,20 +18,20 @@ process_files() {
 
     if [ "$type" == "mc" ]; then
         # QCD
-        python3 haddnano.py ${output_dir}/qcd.root ${input_dir}/QCD_HT-*.root
+        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/qcd.root ${input_dir}/QCD_HT-*.root
 
         # Top
-        python3 haddnano.py ${output_dir}/top.root ${input_dir}/TBbarQ_*.root ${input_dir}/Tbar*.root ${input_dir}/TT*.root ${input_dir}/TWminus*.root
+        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/top.root ${input_dir}/TBbarQ_*.root ${input_dir}/Tbar*.root ${input_dir}/TT*.root ${input_dir}/TWminus*.root
 
         # ggfhh4b
-        python3 haddnano.py ${output_dir}/ggfhh4b.root ${input_dir}/GluGlutoHHto4B*.root
+        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/ggfhh4b.root ${input_dir}/GluGlutoHHto4B*.root
 
         # v-qq
-        python3 haddnano.py ${output_dir}/v-qq.root ${input_dir}/Wto2Q*.root ${input_dir}/Zto2Q*.root
+        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/v-qq.root ${input_dir}/Wto2Q*.root ${input_dir}/Zto2Q*.root
 
     elif [ "$type" == "data" ]; then
         # JetHT
-        python3 haddnano.py ${output_dir}/jetht.root ${input_dir}/JetMET_*.root
+        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/jetht.root ${input_dir}/JetMET_*.root
     fi
 }
 
