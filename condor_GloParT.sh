@@ -99,7 +99,7 @@ process_mode() {
             # Add cross-section (xsec) weights and pileup (pu) weights and hadd the output files
             python3 runHeavyFlavTrees.py \
             ${RUN_DATA} \
-            --add-weight --weight-file "${DIR_RUN}/samples/xsecs_run3.py" \
+            --add-weight --weight-file "${DIR_RUN}/samples/xsec_run3_ParT.json" \
             ${INPUT_TAG} \
             -o ${OUTPUT} \
             --nfiles-per-job ${N_FILES_PER_JOB} \
