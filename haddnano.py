@@ -2,11 +2,20 @@
 import ROOT
 import numpy
 import sys
+import warnings
 
 if len(sys.argv) < 3:
     print("Syntax: haddnano.py out.root input1.root input2.root ...")
 ofname = sys.argv[1]
 files = sys.argv[2:]
+
+import os
+SKIP_BAD_SAMPLES = os.environ.get("SKIP", "true").lower() in ("true", "1")
+warnings.warn(
+    f"WARNING: SKIP_BAD_SAMPLES={SKIP_BAD_SAMPLES}. "
+    "Use export SKIP_BAD_SAMPLES=true to enable skipping. "
+    "Use export SKIP_BAD_SAMPLES=false to disable skipping. "
+)
 
 
 def zeroFill(tree, brName, brObj, allowNonBool=False):
@@ -57,18 +66,19 @@ if goFast:
 of.cd()
 
 files_to_skip = set()
-# First pass: identify files to skip
-for e in fileHandles[0].GetListOfKeys():
-    name = e.GetName()
-    for i, fh in enumerate(fileHandles[1:], 1):
-        if fh.GetName() in files_to_skip:
-            continue
-        try:
-            otherObj = fh.GetListOfKeys().FindObject(name).ReadObj()
-            del otherObj  # Explicitly delete to avoid memory leaks
-        except Exception as e:
-            print(f"Error reading {name} from {fh.GetName()}: {e}")
-            files_to_skip.add(fh.GetName())
+if SKIP_BAD_SAMPLES:
+    # First pass: identify files to skip
+    for e in fileHandles[0].GetListOfKeys():
+        name = e.GetName()
+        for i, fh in enumerate(fileHandles[1:], 1):
+            if fh.GetName() in files_to_skip:
+                continue
+            try:
+                otherObj = fh.GetListOfKeys().FindObject(name).ReadObj()
+                del otherObj  # Explicitly delete to avoid memory leaks
+            except Exception as e:
+                print(f"Error reading {name} from {fh.GetName()}: {e}")
+                files_to_skip.add(fh.GetName())
 
 for e in fileHandles[0].GetListOfKeys():
     name = e.GetName()
