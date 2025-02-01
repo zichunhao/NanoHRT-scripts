@@ -9,6 +9,10 @@ get_sub_dir() {
     echo GloParTStage2_20241009_ak8_qcd_${era}
 }
 
+EXEC_MC="python3 ${SCRIPT_DIR}/haddnano.py"
+EXEC_DATA="python3 ${SCRIPT_DIR}/haddnano.py"
+# EXEC_DATA="hadd -f"
+
 process_files() {
     local type=$1
     local input_dir=$2
@@ -18,25 +22,25 @@ process_files() {
 
     if [ "$type" == "mc" ]; then
         # QCD
-        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/qcd.root ${input_dir}/QCD_HT-*.root
+        ${EXEC_MC} ${output_dir}/qcd.root ${input_dir}/QCD_HT-*.root
 
         # Top
-        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/top.root ${input_dir}/TBbarQ_*.root ${input_dir}/Tbar*.root ${input_dir}/TT*.root ${input_dir}/TWminus*.root
+        ${EXEC_MC} ${output_dir}/top.root ${input_dir}/TBbarQ_*.root ${input_dir}/Tbar*.root ${input_dir}/TT*.root ${input_dir}/TWminus*.root
 
         # ggfhh4b
-        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/ggfhh4b.root ${input_dir}/GluGlutoHHto4B*.root
+        ${EXEC_MC} ${output_dir}/ggfhh4b.root ${input_dir}/GluGlutoHHto4B*.root
 
         # v-qq
-        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/v-qq.root ${input_dir}/Wto2Q*.root ${input_dir}/Zto2Q*.root
+        ${EXEC_MC} ${output_dir}/v-qq.root ${input_dir}/Wto2Q*.root ${input_dir}/Zto2Q*.root
 
     elif [ "$type" == "data" ]; then
         # JetHT
-        python3 ${SCRIPT_DIR}/haddnano.py ${output_dir}/jetht.root ${input_dir}/JetMET_*.root
+        ${EXEC_DATA} ${output_dir}/jetht.root ${input_dir}/JetMET_*.root
     fi
 }
 
 for era in 2022 2022EE 2023BPix 2023; do
-    for type in mc data; do
+    for type in data mc; do
         echo "Processing ${era} ${type}..."
         sub_dir=$(get_sub_dir $era)
         input_dir=${parent_dir}/${sub_dir}/${type}/parts

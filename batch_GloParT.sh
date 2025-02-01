@@ -4,11 +4,16 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 echo "script's dir: $SCRIPT_DIR"
 
 if [ -z $1 ]; then
-    echo "Usage: source batch.sh <step> [mode:data/mc/both]"
+    echo "Usage: source batch_GloParT.sh <step> [mode:data/mc/both]"
     return
 fi
 
 step=$1
+# need to specify step
+if [ -z $step ]; then
+    echo "Please specify step"
+    return
+fi
 mode=${2:-both}
 
 case $mode in
