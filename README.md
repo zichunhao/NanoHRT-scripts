@@ -11,7 +11,7 @@ scram b -j 8;
 
 # Run the script
 ```bash
-# you are already in the scripts directory
+# Assuming you are already in the scripts directory and have cmsenv
 # step 0: update TAG.sh if necessary
 # step 1: create condor script
 ./batch_GloParT.sh 1
@@ -22,3 +22,13 @@ scram b -j 8;
 # merge outputs
 ./merge_final.sh
 ```
+
+## Note
+If you want to run over a single era, do the following
+```
+# Assuming you are already in the scripts directory
+./condor_GloParT.sh <era> <step> [mode]
+```
+- era: 2022, 2022EE, 2023BPix, 2023
+- step: 1, 2, 3
+- mode: mc, data, both (default: both)
