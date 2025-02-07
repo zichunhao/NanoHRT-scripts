@@ -68,7 +68,7 @@ process_mode() {
     local RUN_DATA=""
     
     if [ "$mode" == "mc" ]; then
-        N_FILES_PER_JOB=2
+        N_FILES_PER_JOB=5
         RUN_DATA=""
     else
         N_FILES_PER_JOB=1
