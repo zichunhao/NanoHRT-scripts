@@ -32,3 +32,8 @@ If you want to run over a single era, do the following
 - era: 2022, 2022EE, 2023BPix, 2023
 - step: 1, 2, 3
 - mode: mc, data, both (default: both)
+
+If you want to add scale factor weights from the scale factor files, do the following
+```
+SF/sf_weight.py
+```
