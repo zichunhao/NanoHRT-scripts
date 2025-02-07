@@ -1,0 +1,313 @@
+{
+  "version": "v3.1.2",
+  "workers": [
+    8,
+    8,
+    8,
+    8
+  ],
+  "run_step": 1111,
+  "skip_coffea": true,
+  "use_helvetica": "auto",
+  "overwrite": false,
+  "custom_selection": null,
+  "custom_sfbdt_path": "/eos/user/c/coli/cms-repo/boohft-calib/sfbdt_models/20221106/tau31_10_10_fj1_model/std/xgb_train.model",
+  "custom_sfbdt_kfold": 5,
+  "reuse_mc_weight_from_routine": null,
+  "skip_tmpl_writing": false,
+  "skip_inclusive_plot_writing": false,
+  "logmsv_div_by_binw": false,
+  "tmpl_max_retries": 10,
+  "test_n_fit": -1,
+  "do_main_fit": true,
+  "do_sfbdt_rwgt_fit": true,
+  "do_fit_var_rwgt_fit": true,
+  "run_central_fit_only": false,
+  "skip_fit": true,
+  "run_impact_for_central_fit": false,
+  "run_full_unce_breakdown_for_central_fit": true,
+  "fit_bound": "0.25,4",
+  "fit_bound_flvB": "0.5,2",
+  "fit_bound_flvC": "0.25,4",
+  "fit_bound_flvL": "0.25,4",
+  "freeze_other_SFs": -1,
+  "show_fitvarrwgt_unce": false,
+  "show_fit_number_only": false,
+  "show_unce_breakdown": true,
+  "show_full_unce_breakdown": true,
+  "show_sfbdt_variation": true,
+  "show_sfbdt_variation_norun": false,
+  "show_sfbdt_variation_all_flavour": false,
+  "lumi_dict": {
+    "2016APV": 19.52,
+    "2016": 16.81,
+    "2017": 41.48,
+    "2018": 59.83,
+    "2022": 7.9714,
+    "2022EE": 26.337,
+    "2023": 17.981,
+    "2023BPix": 9.516
+  },
+  "fileset_template": {
+    "qcd-mg": "mc/outputs/qcd.root",
+    "top": "mc/outputs/top.root",
+    "v-qq": "mc/outputs/v-qq.root",
+    "jetht": "data/outputs/jetht.root"
+  },
+  "hlt_branches": {
+    "2016APV": [
+      "HLT_PFHT125",
+      "HLT_PFHT200",
+      "HLT_PFHT250",
+      "HLT_PFHT300",
+      "HLT_PFHT350",
+      "HLT_PFHT400",
+      "HLT_PFHT475",
+      "HLT_PFHT600",
+      "HLT_PFHT650",
+      "HLT_PFHT800",
+      "HLT_PFHT900"
+    ],
+    "2016": [
+      "HLT_PFHT125",
+      "HLT_PFHT200",
+      "HLT_PFHT250",
+      "HLT_PFHT300",
+      "HLT_PFHT350",
+      "HLT_PFHT400",
+      "HLT_PFHT475",
+      "HLT_PFHT600",
+      "HLT_PFHT650",
+      "HLT_PFHT800",
+      "HLT_PFHT900"
+    ],
+    "2017": [
+      "HLT_PFHT180",
+      "HLT_PFHT250",
+      "HLT_PFHT370",
+      "HLT_PFHT430",
+      "HLT_PFHT510",
+      "HLT_PFHT590",
+      "HLT_PFHT680",
+      "HLT_PFHT780",
+      "HLT_PFHT890",
+      "HLT_PFHT1050",
+      "HLT_PFHT350"
+    ],
+    "2018": [
+      "HLT_PFHT180",
+      "HLT_PFHT250",
+      "HLT_PFHT370",
+      "HLT_PFHT430",
+      "HLT_PFHT510",
+      "HLT_PFHT590",
+      "HLT_PFHT680",
+      "HLT_PFHT780",
+      "HLT_PFHT890",
+      "HLT_PFHT1050",
+      "HLT_PFHT350"
+    ],
+    "2022": [
+      "HLT_PFHT1050",
+      "HLT_PFHT180",
+      "HLT_PFHT250",
+      "HLT_PFHT350",
+      "HLT_PFHT370",
+      "HLT_PFHT430",
+      "HLT_PFHT510",
+      "HLT_PFHT590",
+      "HLT_PFHT680",
+      "HLT_PFHT780",
+      "HLT_PFHT890",
+      "HLT_AK8PFJet425_SoftDropMass40"
+    ],
+    "2022EE": [
+      "HLT_PFHT1050",
+      "HLT_PFHT180",
+      "HLT_PFHT250",
+      "HLT_PFHT350",
+      "HLT_PFHT370",
+      "HLT_PFHT430",
+      "HLT_PFHT510",
+      "HLT_PFHT590",
+      "HLT_PFHT680",
+      "HLT_PFHT780",
+      "HLT_PFHT890",
+      "HLT_AK8PFJet425_SoftDropMass40"
+    ],
+    "2023": [
+      "HLT_PFHT1050",
+      "HLT_PFHT180",
+      "HLT_PFHT250",
+      "HLT_PFHT350",
+      "HLT_PFHT370",
+      "HLT_PFHT430",
+      "HLT_PFHT510",
+      "HLT_PFHT590",
+      "HLT_PFHT680",
+      "HLT_PFHT780",
+      "HLT_PFHT890",
+      "HLT_AK8PFJet425_SoftDropMass40"
+    ],
+    "2023BPix": [
+      "HLT_PFHT1050",
+      "HLT_PFHT180",
+      "HLT_PFHT250",
+      "HLT_PFHT350",
+      "HLT_PFHT370",
+      "HLT_PFHT430",
+      "HLT_PFHT510",
+      "HLT_PFHT590",
+      "HLT_PFHT680",
+      "HLT_PFHT780",
+      "HLT_PFHT890",
+      "HLT_AK8PFJet425_SoftDropMass40"
+    ]
+  },
+  "rwgt_pt_bins": [
+    [
+      200,
+      250
+    ],
+    [
+      250,
+      300
+    ],
+    [
+      300,
+      350
+    ],
+    [
+      350,
+      400
+    ],
+    [
+      400,
+      450
+    ],
+    [
+      450,
+      500
+    ],
+    [
+      500,
+      550
+    ],
+    [
+      550,
+      600
+    ],
+    [
+      600,
+      700
+    ],
+    [
+      700,
+      800
+    ],
+    [
+      800,
+      100000
+    ]
+  ],
+  "unce_list": [
+    "pu",
+    "l1PreFiring",
+    "jes",
+    "jer",
+    "fracBB",
+    "fracCC",
+    "fracLight",
+    "psWeightIsr",
+    "psWeightFsr",
+    "sfBDTRwgt",
+    "fitVarRwgt"
+  ],
+  "tagger_name_replace_map": {
+    "FatJet_particleNet_Xbb": "fj_x_ParticleNetLegacy_Xbb",
+    "FatJet_particleNet_Xcc": "fj_x_ParticleNetLegacy_Xcc",
+    "FatJet_particleNet_Xqq": "fj_x_ParticleNetLegacy_Xqq",
+    "FatJet_particleNet_QCD": "fj_x_ParticleNetLegacy_QCD",
+    "FatJet_particleNet_XbbVsQCD": "fj_x_ParticleNetLegacy_XbbVsQCD",
+    "FatJet_particleNet_XccVsQCD": "fj_x_ParticleNetLegacy_XccVsQCD",
+    "FatJet_particleNet_XbbOrXqqVsQCD": "fj_x_ParticleNetLegacy_XbbOrXqqVsQCD",
+    "FatJet_particleNet_XccOrXqqVsQCD": "fj_x_ParticleNetLegacy_XccOrXqqVsQCD",
+    "FatJet_particleNet_TvsQCD": "fj_x_ParticleNetLegacy_TvsQCD",
+    "FatJet_particleNet_WvsQCD": "fj_x_ParticleNetLegacy_WvsQCD",
+    "FatJet_particleNet_ZvsQCD": "fj_x_ParticleNetLegacy_ZvsQCD",
+    "FatJet_globalParT_Xbb": "fj_x_globalParT_Xbb",
+    "FatJet_globalParT_Xcc": "fj_x_globalParT_Xcc",
+    "FatJet_globalParT_Xqq": "fj_x_globalParT_Xqq",
+    "FatJet_globalParT_QCD": "fj_x_globalParT_QCD",
+    "FatJet_globalParT_XbbVsQCD": "fj_x_globalParT_XbbVsQCD",
+    "FatJet_globalParT_XccVsQCD": "fj_x_globalParT_XccVsQCD",
+    "FatJet_globalParT_XbbOrXqqVsQCD": "fj_x_globalParT_XbbOrXqqVsQCD",
+    "FatJet_globalParT_XccOrXqqVsQCD": "fj_x_globalParT_XccOrXqqVsQCD",
+    "FatJet_globalParT_TvsQCD": "fj_x_globalParT_TopVsQCD",
+    "FatJet_deepTagMD_ZHbbvsQCD": "fj_x_DeepAK8MD_ZHbbvsQCD",
+    "FatJet_deepTagMD_ZHccvsQCD": "fj_x_DeepAK8MD_ZHccvsQCD",
+    "FatJet_deepTagMD_bbVsLight": "fj_x_DeepAK8MD_bbVsLight",
+    "FatJet_deepTag_TvsQCD": "fj_x_DeepAK8_TvsQCD",
+    "FatJet_deepTag_WvsQCD": "fj_x_DeepAK8_WvsQCD",
+    "FatJet_deepTag_ZvsQCD": "fj_x_DeepAK8_ZvsQCD",
+    "FatJet_btagDDBvLV2": "fj_x_btagDDBvLV2",
+    "FatJet_btagDDCvBV2": "fj_x_btagDDCvBV2",
+    "FatJet_btagDDCvLV2": "fj_x_btagDDCvLV2",
+    "FatJet_btagDeepB": "fj_x_btagDeepB",
+    "FatJet_btagHbb": "fj_x_btagHbb"
+  },
+  "default_wp_name_map": {
+    "HP": "High Purity",
+    "MP": "Medium Purity",
+    "LP": "Low Purity",
+    "WP1": "WP1",
+    "WP2": "WP2",
+    "WP3": "WP3",
+    "WP4": "WP4",
+    "WP5": "WP5"
+  },
+  "routine_name": "20241009_bb_GloParTXbbVsQCD_floatSFs_trial20241101",
+  "type": "bb",
+  "year": "2023BPix",
+  "sample_prefix": "/eos/user/z/zichun/higgs/HH4b-calib/HRT_ParT/GloParTStage2_20241009_ak8_qcd_$YEAR",
+  "pt_edges": [
+    200,
+    400
+  ],
+  "tagger": {
+    "expr": "FatJet_globalParT_Xbb / (FatJet_globalParT_Xbb + FatJet_globalParT_QCD)",
+    "span": [
+      0.0,
+      1.0
+    ],
+    "wps": {
+      "WP1": [
+        0.99,
+        1.0
+      ],
+      "WP2": [
+        0.97,
+        0.99
+      ],
+      "WP3": [
+        0.94,
+        0.97
+      ],
+      "WP4": [
+        0.9,
+        0.94
+      ],
+      "WP5": [
+        0.8,
+        0.9
+      ]
+    }
+  },
+  "main_analysis_tree": {
+    "path": "/eos/user/z/zichun/higgs/HH4b-calib/HRT_ParT/GloParTStage2_20241009_ak8_qcd_$YEAR/mc/outputs/ggfhh4b.root",
+    "treename": "Events",
+    "selection": "(fj_1_dr_H<0.8) & (fj_1_dr_H_daus<0.8) & (fj_1_globalParT_XbbVsQCD > 0)",
+    "tagger": "fj_1_globalParT_XbbVsQCD",
+    "weight": "genWeight*xsecWeight*puWeight"
+  }
+}
