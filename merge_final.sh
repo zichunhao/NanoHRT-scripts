@@ -3,10 +3,11 @@
 parent_dir="/eos/home-z/zichun/higgs/HH4b-calib/HRT_ParT"
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+source ${SCRIPT_DIR}/TAG.sh;
 
 get_sub_dir() {
     local era=$1
-    echo GloParTStage2_20241009_ak8_qcd_${era}
+    echo ${TAG}_ak8_qcd_${era}
 }
 
 EXEC_MC="python3 ${SCRIPT_DIR}/haddnano.py"
@@ -46,6 +47,9 @@ for era in 2022 2022EE 2023BPix 2023; do
         input_dir=${parent_dir}/${sub_dir}/${type}/parts
         output_dir=${parent_dir}/${sub_dir}/${type}/outputs
 
-        process_files $type $input_dir $output_dir
+        process_files $type $input_dir $output_dir &
     done
 done
+
+wait
+echo "All done!"
