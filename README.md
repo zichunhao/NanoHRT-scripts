@@ -2,8 +2,8 @@
 ## Set up environment
 ```bash
 cmsrel CMSSW_13_0_13;
-cd CMSSW_13_0_13/src/PhysicsTools;
 mkdir -p CMSSW_13_0_13/src/PhysicsTools;
+cd CMSSW_13_0_13/src/PhysicsTools;
 git clone git@github.com:zichunhao/nanoAOD-tools.git NanoAODTools;
 git clone git@github.com:zichunhao/NanoHRT-tools.git NanoHRTTools;
 scram b -j 8;
